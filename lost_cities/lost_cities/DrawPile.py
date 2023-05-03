@@ -1,24 +1,24 @@
 from Card import Card
+import random
 
 class DrawPile:
-    """
-    A class representing the draw pile in the game.
-
-    Attributes:
-        cards (list): A list containing instances of the Card class representing the cards in the
-            draw pile.
-
-    Methods:
-        __init__(): Initializes a new instance of the DrawPile class with an empty cards list.
-        
-        draw_card(): Draws a card from the draw pile and returns it.
-
-    Returns:
-        Card: The Card instance that was drawn from the draw pile.
-        
-    """
     def __init__(self):
         self.cards = []
+        self.generate_cards()
+        self.shuffle()
+
+    def generate_cards(self):
+        colors = ['red', 'green', 'blue', 'white', 'yellow']
+        values = list(range(2, 11)) + [1] * 10
+        for color in colors:
+            for value in values:
+                self.cards.append(Card(color, value))
+
+    def shuffle(self):
+        random.shuffle(self.cards)
 
     def draw_card(self):
-        pass
+        if len(self.cards) > 0:
+            return self.cards.pop()
+        else:
+            return None

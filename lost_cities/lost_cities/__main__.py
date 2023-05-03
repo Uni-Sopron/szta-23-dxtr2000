@@ -1,6 +1,5 @@
-import sys
-from lost_cities import fib
+from Game import Game
 
 if __name__ == "__main__":
-    n = int(input("Enter a number:"))
-    print(fib(n))
+    Game = Game(['Dexter', 'Ice'])
+    Game.play_game()
