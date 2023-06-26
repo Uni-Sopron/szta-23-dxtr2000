@@ -2,6 +2,7 @@ from Board import Board
 from DiscardPile import DiscardPile
 from DrawPile import DrawPile
 
+
 class Player:
     """Represents a player in the game.
 

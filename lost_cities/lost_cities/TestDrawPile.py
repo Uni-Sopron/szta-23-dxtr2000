@@ -1,5 +1,4 @@
 import unittest
-from unittest.mock import patch
 
 from Card import Card
 from DrawPile import DrawPile
