@@ -15,8 +15,9 @@ class Board:
         Creates expeditions for each color.
 
         """
-        self.expeditions = [Expedition(color) for color in [
-            'yellow', 'green', 'blue', 'white', 'red']]
+        self.expeditions = [
+            Expedition(color) for color in ["yellow", "green", "blue", "white", "red"]
+        ]
 
     def add_card(self, card: Card):
         """
@@ -41,7 +42,7 @@ class Board:
         Raises:
             ValueError: If the color is invalid.
         """
-        colors = ['yellow', 'green', 'blue', 'white', 'red']
+        colors = ["yellow", "green", "blue", "white", "red"]
         if color not in colors:
             raise ValueError("Invalid color")
         return colors.index(color)
@@ -53,4 +54,4 @@ class Board:
         Returns:
             str: The string representation of the board, displaying each expedition.
         """
-        return '\n'.join([str(expedition) for expedition in self.expeditions])
+        return "\n".join([str(expedition) for expedition in self.expeditions])
