@@ -1,5 +1,6 @@
-from Card import Card
 import random
+
+from Card import Card
 
 class DrawPile:
     """Represents the draw pile of the game.

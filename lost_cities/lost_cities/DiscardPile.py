@@ -33,7 +33,7 @@ class DiscardPile:
             return self.cards[-1]
         else:
             return None
-        
+
     def is_empty(self):
         """
         Checks if the discard pile is empty.

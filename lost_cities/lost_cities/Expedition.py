@@ -3,7 +3,7 @@ from DiscardPile import DiscardPile
 
 class Expedition:
     """Represents an expedition of cards of a specific color.
-    
+
     Attributes:
         color (str): The color of the expedition.
         cards (list): The cards in the expedition.
@@ -14,7 +14,7 @@ class Expedition:
     def __init__(self, color: str):
         """
         Initializes a new instance of the Expedition class.
-        
+
         Args:
             color (str): The color of the expedition.
         """
@@ -26,7 +26,7 @@ class Expedition:
     def add_card(self, card):
         """
         Adds a card to the expedition.
-        
+
         Args:
             card (Card): The card to be added to the expedition.
         """
@@ -37,7 +37,7 @@ class Expedition:
     def get_points(self):
         """
         Calculates the points earned by the expedition.
-        
+
         Returns:
             int: The points earned by the expedition.
         """
@@ -47,11 +47,11 @@ class Expedition:
             return sum(card.value for card in self.cards) - 20
         else:
             return sum(card.value for card in self.cards) + 20
-    
+
     def __repr__(self):
         """
         Returns a string representation of the expedition.
-        
+
         Returns:
             str: The string representation of the expedition.
         """

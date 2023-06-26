@@ -1,5 +1,5 @@
-from Expedition import Expedition
 from Card import Card
+from Expedition import Expedition
 
 class Board:
     """Represents the game board.
@@ -15,7 +15,7 @@ class Board:
 
         """
         self.expeditions = [Expedition(color) for color in ['yellow', 'green', 'blue', 'white', 'red']]
-    
+
     def add_card(self, card: Card):
         """
         Adds a card to the corresponding expedition.

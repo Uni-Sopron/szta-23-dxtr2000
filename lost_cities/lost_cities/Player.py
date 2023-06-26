@@ -1,7 +1,7 @@
-from Card import Card
-from DrawPile import DrawPile
-from DiscardPile import DiscardPile
 from Board import Board
+from Card import Card
+from DiscardPile import DiscardPile
+from DrawPile import DrawPile
 
 class Player:
     """Represents a player in the game.
@@ -24,7 +24,7 @@ class Player:
         self.hand_cards = []
         self.points = 0
         self.board = Board()
-    
+
     def draw_card(self, draw_pile: DrawPile):
         """
         Draws a card from the draw pile and adds it to the player's hand.
@@ -33,7 +33,7 @@ class Player:
             draw_pile (DrawPile): The draw pile from which to draw the card.
         """
         self.hand_cards.append(draw_pile.draw_card())
-    
+
     def play_card(self, card_index: int, board: Board):
         """
         Plays a card from the player's hand onto the game board.
@@ -46,7 +46,7 @@ class Player:
         self.hand_cards.pop(card_index - 1)
         board.expeditions[board.get_expedition(card.color)].add_card(card)
         self.points += card.value
-    
+
     def discard_card(self, card_index: int, discard_pile: DiscardPile):
         """
         Discards a card from the player's hand into the discard pile.
