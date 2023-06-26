@@ -1,5 +1,6 @@
 from Card import Card
 
+
 class DiscardPile:
     """Represents the discard pile of the game.
 

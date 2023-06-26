@@ -2,7 +2,9 @@ import random
 
 from Card import Card
 
+
 class DrawPile:
+
     """Represents the draw pile of the game.
 
     Attributes:
@@ -13,6 +15,7 @@ class DrawPile:
         """
         Initializes a new instance of the DrawPile class.
         """
+
         self.cards = []
         self.generate_cards()
         self.shuffle()
@@ -21,6 +24,7 @@ class DrawPile:
         """
         Generates the cards for the draw pile.
         """
+
         colors = ['red', 'green', 'blue', 'white', 'yellow']
         values = list(range(2, 11))
         for color in colors:
@@ -31,6 +35,7 @@ class DrawPile:
         """
         Shuffles the cards in the draw pile.
         """
+
         random.shuffle(self.cards)
 
     def draw_card(self):
@@ -40,6 +45,7 @@ class DrawPile:
         Returns:
             Card or None: The drawn card, or None if the draw pile is empty.
         """
+
         if len(self.cards) > 0:
             return self.cards.pop()
         else:

@@ -1,5 +1,5 @@
-from Card import Card
 from DiscardPile import DiscardPile
+
 
 class Expedition:
     """Represents an expedition of cards of a specific color.
