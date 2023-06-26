@@ -68,9 +68,9 @@ class Game:
             draw_pile = self.choose_draw_pile()
         self.current_player.draw_card(draw_pile)
         action = self.get_player_action()
-        if action == 'play':
+        if action == "play":
             self.play_card()
-        elif action == 'discard':
+        elif action == "discard":
             self.discard_card()
         self.advance_to_next_player()
 
@@ -83,9 +83,10 @@ class Game:
         """
         while True:
             choice = input(
-                "Enter 'draw' to draw from the draw pile or 'discard' to draw from the discard pile: ")
-            if choice.lower() in ['draw', 'discard']:
-                if choice.lower() == 'draw':
+                "Enter 'draw' to draw from the draw pile or 'discard' to draw from the discard pile: "
+            )
+            if choice.lower() in ["draw", "discard"]:
+                if choice.lower() == "draw":
                     return self.draw_pile
                 else:
                     return self.discard_pile
@@ -99,8 +100,9 @@ class Game:
         """
         while True:
             action = input(
-                "Enter 'play' to play a card or 'discard' to discard a card: ")
-            if action.lower() in ['play', 'discard']:
+                "Enter 'play' to play a card or 'discard' to discard a card: "
+            )
+            if action.lower() in ["play", "discard"]:
                 return action.lower()
 
     def play_card(self):
@@ -110,7 +112,8 @@ class Game:
         while True:
             try:
                 card_index = int(
-                    input("Enter the index of the card you want to play: "))
+                    input("Enter the index of the card you want to play: ")
+                )
                 self.current_player.play_card(card_index, self.current_player.board)
                 break
             except (ValueError, IndexError):
@@ -123,15 +126,18 @@ class Game:
         while True:
             try:
                 card_index = int(
-                    input("Enter the index of the card you want to discard: "))
+                    input("Enter the index of the card you want to discard: ")
+                )
                 card = self.current_player.hand_cards[card_index - 1]
 
                 for expedition in self.current_player.board.expeditions:
                     if expedition.color == card.color:
                         self.current_player.discard_card(
-                            card_index, expedition.discard_pile)
+                            card_index, expedition.discard_pile
+                        )
                         print(
-                            f"Discarded {card} to {expedition.color.capitalize()} expedition discard pile.")
+                            f"Discarded {card} to {expedition.color.capitalize()} expedition discard pile."
+                        )
                         break
                 break
             except (ValueError, IndexError):
@@ -155,15 +161,18 @@ class Game:
         print(f"\nRound {self.current_round}")
         print(f"Current player: {self.current_player.name}")
         print(
-            f"{self.current_player.name}'s hand: {[str(card) for card in self.current_player.hand_cards]}")
+            f"{self.current_player.name}'s hand: {[str(card) for card in self.current_player.hand_cards]}"
+        )
         print(f"Draw pile: {len(self.draw_pile.cards)} cards")
         for expedition in self.current_player.board.expeditions:
             if expedition.started:
                 print(
-                    f"{expedition.color.capitalize()} expedition started with cards: {[str(card) for card in expedition.cards]} Discard pile: {[str(card) for card in expedition.discard_pile.cards]}")
+                    f"{expedition.color.capitalize()} expedition started with cards: {[str(card) for card in expedition.cards]} Discard pile: {[str(card) for card in expedition.discard_pile.cards]}"
+                )
             else:
                 print(
-                    f"{expedition.color.capitalize()} expedition not started | Discard pile: {[str(card) for card in expedition.discard_pile.cards]}")
+                    f"{expedition.color.capitalize()} expedition not started | Discard pile: {[str(card) for card in expedition.discard_pile.cards]}"
+                )
         print("\n")
 
     def display_results(self):
@@ -175,10 +184,9 @@ class Game:
         for expedition in self.current_player.board.expeditions:
             if expedition.cards:
                 print(
-                    f"{expedition.color.capitalize()} expedition: {expedition.get_points()} points")
-            else:
-                print(
-                    f"{expedition.color.capitalize()} expedition: Not started"
+                    f"{expedition.color.capitalize()} expedition: {expedition.get_points()} points"
                 )
+            else:
+                print(f"{expedition.color.capitalize()} expedition: Not started")
         for player in self.players:
             print(f"{player.name}: {player.points} points")

@@ -25,7 +25,7 @@ class DrawPile:
         Generates the cards for the draw pile.
         """
 
-        colors = ['red', 'green', 'blue', 'white', 'yellow']
+        colors = ["red", "green", "blue", "white", "yellow"]
         values = list(range(2, 11))
         for color in colors:
             for value in values:
