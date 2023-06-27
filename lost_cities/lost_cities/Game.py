@@ -111,9 +111,7 @@ class Game:
         """
         while True:
             try:
-                card_index = int(
-                    input("Enter the index of the card you want to play: ")
-                )
+                card_index = int(input("Enter the index of the card you want to play: "))
                 self.current_player.play_card(card_index, self.current_player.board)
                 break
             except (ValueError, IndexError):
